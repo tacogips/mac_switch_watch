@@ -41,111 +41,111 @@ func RemoveHandler(key EventKey) context.Context {
 //export CallbackOnCanDevicePowerOff
 func CallbackOnCanDevicePowerOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnCanDevicePowerOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnCanSystemPowerOff
 func CallbackOnCanSystemPowerOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnCanSystemPowerOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnCanSystemSleep
 func CallbackOnCanSystemSleep() {
 	if hdr, ok := HandlerCtx.Value(KeyOnCanSystemSleep).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnDeviceHasPoweredOff
 func CallbackOnDeviceHasPoweredOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnDeviceHasPoweredOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnDeviceHasPoweredOn
 func CallbackOnDeviceHasPoweredOn() {
 	if hdr, ok := HandlerCtx.Value(KeyOnDeviceHasPoweredOn).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnDeviceWillNotPowerOff
 func CallbackOnDeviceWillNotPowerOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnDeviceWillNotPowerOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnDeviceWillPowerOff
 func CallbackOnDeviceWillPowerOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnDeviceWillPowerOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnDeviceWillPowerOn
 func CallbackOnDeviceWillPowerOn() {
 	if hdr, ok := HandlerCtx.Value(KeyOnDeviceWillPowerOn).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnSystemHasPoweredOn
 func CallbackOnSystemHasPoweredOn() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemHasPoweredOn).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnSystemPagingOff
 func CallbackOnSystemPagingOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemPagingOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnSystemWillNotPowerOff
 func CallbackOnSystemWillNotPowerOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemWillNotPowerOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnSystemWillNotSleep
 func CallbackOnSystemWillNotSleep() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemWillNotSleep).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export  CallbackOnSystemWillPowerOff
 func CallbackOnSystemWillPowerOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemWillPowerOff).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnSystemWillPowerOn
 func CallbackOnSystemWillPowerOn() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemWillPowerOn).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnSystemWillRestart
 func CallbackOnSystemWillRestart() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemWillRestart).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
 
 //export CallbackOnSystemWillSleep
 func CallbackOnSystemWillSleep() {
 	if hdr, ok := HandlerCtx.Value(KeyOnSystemWillSleep).(func()); ok {
-		hdr()
+		go hdr()
 	}
 }
