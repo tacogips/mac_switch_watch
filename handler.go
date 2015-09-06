@@ -3,6 +3,41 @@ package mac_switch_watch
 import "C"
 import "golang.org/x/net/context"
 
+var HandlerCtx = context.Background()
+
+type EventKey int
+
+const (
+	KeyOnCanDevicePowerOff EventKey = iota
+	KeyOnCanSystemPowerOff
+	KeyOnCanSystemSleep
+	KeyOnDeviceHasPoweredOff
+	KeyOnDeviceHasPoweredOn
+	KeyOnDeviceWillNotPowerOff
+	KeyOnDeviceWillPowerOff
+	KeyOnDeviceWillPowerOn
+	KeyOnSystemHasPoweredOn
+	KeyOnSystemPagingOff
+	KeyOnSystemWillNotPowerOff
+	KeyOnSystemWillNotSleep
+	KeyOnSystemWillPowerOff
+	KeyOnSystemWillPowerOn
+	KeyOnSystemWillRestart
+	KeyOnSystemWillSleep
+)
+
+//SetHandler
+func SetHandler(key EventKey, handler func()) context.Context {
+	HandlerCtx = context.WithValue(HandlerCtx, key, handler)
+	return HandlerCtx
+}
+
+//RemoveHandler
+func RemoveHandler(key EventKey) context.Context {
+	HandlerCtx = context.WithValue(HandlerCtx, key, nil)
+	return HandlerCtx
+}
+
 //export CallbackOnCanDevicePowerOff
 func CallbackOnCanDevicePowerOff() {
 	if hdr, ok := HandlerCtx.Value(KeyOnCanDevicePowerOff).(func()); ok {
@@ -114,26 +149,3 @@ func CallbackOnSystemWillSleep() {
 		hdr()
 	}
 }
-
-var HandlerCtx = context.Background()
-
-type HandlerKey int
-
-const (
-	KeyOnCanDevicePowerOff HandlerKey = iota
-	KeyOnCanSystemPowerOff
-	KeyOnCanSystemSleep
-	KeyOnDeviceHasPoweredOff
-	KeyOnDeviceHasPoweredOn
-	KeyOnDeviceWillNotPowerOff
-	KeyOnDeviceWillPowerOff
-	KeyOnDeviceWillPowerOn
-	KeyOnSystemHasPoweredOn
-	KeyOnSystemPagingOff
-	KeyOnSystemWillNotPowerOff
-	KeyOnSystemWillNotSleep
-	KeyOnSystemWillPowerOff
-	KeyOnSystemWillPowerOn
-	KeyOnSystemWillRestart
-	KeyOnSystemWillSleep
-)
