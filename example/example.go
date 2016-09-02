@@ -1,7 +1,7 @@
 package main
 
 /* example: output comment to console on sleep/wake up */
-import "github.com/kuxuxun/mac_switch_watch"
+import "github.com/tacogips/mac_switch_watch"
 
 func main() {
 	mac_switch_watch.SetHandler(mac_switch_watch.KeyOnSystemWillSleep, OnSleep)
